@@ -13,7 +13,7 @@ public class Main {
                 try {
                     sum += Integer.parseInt(array[i][j]);
                 } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("MyArrayDataException: неверные данные в ячейке [" + i + "][" + j + "]: " + array[i][j]);
+                    throw new MyArrayDataException(i,j);
                 }
             }
         }

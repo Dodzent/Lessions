@@ -16,20 +16,32 @@ public class Lesson_6 {
                 {"5", "6", "7", "8"},
                 {"9", "Branch", "11", "12"},
                 {"13", "14", "15", "16"}};
-        try {
-            System.out.println(main.arrayMethod(arrayOne));
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            System.err.println(e.getMessage());
+        try { // прогон 1-ого массива
+            try {
+                System.out.println(main.arrayMethod(arrayOne));
+            }catch (MyArraySizeException e){
+                System.err.println(e.getMessage());
+            }
+        } catch (MyArrayDataException e) {
+            System.err.println("MyArrayDataException: неверные данные в ячейке ["+e.i+"]["+e.j+"]");
         }
-        try {
-            System.out.println(main.arrayMethod(arrayTwo));
-        } catch (MyArraySizeException | MyArrayDataException e){
-            System.err.println(e.getMessage());
+        try { // прогон 2-ого массива
+            try {
+                System.out.println(main.arrayMethod(arrayTwo));
+            }catch (MyArraySizeException e){
+                System.err.println(e.getMessage());
+            }
+        } catch (MyArrayDataException e){
+            System.err.println("MyArrayDataException: неверные данные в ячейке ["+e.i+"]["+e.j+"]");
         }
-        try {
-            System.out.println(main.arrayMethod(arrayThree));
-        } catch (MyArraySizeException | MyArrayDataException e){
-            System.err.println(e.getMessage());
+        try { // прогон 3-его массива
+            try {
+                System.out.println(main.arrayMethod(arrayThree));
+            }catch (MyArraySizeException e){
+                System.err.println(e.getMessage());
+            }
+        } catch (MyArrayDataException e) {
+            System.err.println("MyArrayDataException: неверные данные в ячейке [" + e.i + "][" + e.j + "]");
         }
     }
 }
