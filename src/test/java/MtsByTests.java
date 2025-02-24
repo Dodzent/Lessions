@@ -23,18 +23,18 @@ public class MtsByTests {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.get("https://mts.by");
+
     }
 
     @Test
     public void testOnlineReplenishment() {
-        driver.get("https://mts.by");
         WebElement Title = driver.findElement(By.xpath("//h2[contains(text(), 'Онлайн пополнение')]"));
         assertTrue(Title.isDisplayed(), "Название блока не отображается.");
     }
 
     @Test
     public void testPaymentSystemLogos() {
-        driver.get("https://mts.by");
         List<WebElement> paymentLogos = driver.findElements(By.xpath(
                 "//img[contains(@alt, 'Visa') or contains(@alt, 'MasterCard') or " +
                         "contains(@alt, 'Белкарт') or contains(@alt, 'Verified By Visa') or " +
@@ -44,7 +44,6 @@ public class MtsByTests {
 
     @Test
     public void testLink() {
-        driver.get("https://mts.by");
         try {
             WebElement acceptCookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'Принять')]"));
             if (acceptCookiesButton.isDisplayed()) {
@@ -63,7 +62,6 @@ public class MtsByTests {
 
     @Test
     public void testReplenishmentForm() {
-        driver.get("https://www.mts.by/");
         try {
             WebElement acceptCookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'Принять')]"));
             if (acceptCookiesButton.isDisplayed()) {
