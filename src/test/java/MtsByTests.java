@@ -24,7 +24,6 @@ public class MtsByTests {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("https://mts.by");
-
     }
 
     @Test
