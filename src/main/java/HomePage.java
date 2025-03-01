@@ -173,17 +173,13 @@ public class HomePage extends MainPage {
 
     public boolean isGpayCardInfoDisplayed() {
         try {
-            // Переключение на iframe
             new WebDriverWait(driver, Duration.ofSeconds(5))
                     .until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(bepaidIframe));
-
-            // Ожидание появления элемента внутри iframe
             new WebDriverWait(driver, Duration.ofSeconds(5))
                     .until(ExpectedConditions.visibilityOf(gpayCardInfo));
-
             return gpayCardInfo.isDisplayed();
         } catch (Exception e) {
-            return false; // Элемент не найден
+            return false;
         }
     }
     public boolean iframeHolder() {

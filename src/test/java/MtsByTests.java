@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import io.qameta.allure.Description;
+
 
 public class MtsByTests {
 
@@ -22,17 +24,20 @@ public class MtsByTests {
     }
 
     @Test
+    @Description("Проверка блока онлайн пополнения")
     public void testOnlineReplenishment() {
         assertTrue(homePage.isOnlineReplenishmentTitleDisplayed(), "Название блока не отображается.");
     }
 
     @Test
+    @Description("Проверка плейсхолдера телефона")
     public void testPlesholderPhone() {
         homePage.acceptCookies();
         assertTrue(homePage.placeholderPhoneDisplayed(),"Ошибка плейсхолдера услуги связи");
     }
 
     @Test
+    @Description("Проверка плейсхолдера интернета")
     public void testPlesholderInternet() {
         homePage.acceptCookies();
         homePage.clickSelectHeader();
@@ -41,6 +46,7 @@ public class MtsByTests {
     }
 
     @Test
+    @Description("Проверка плейсхолдера рассрочки")
     public void testPlesholderInstallments() {
         homePage.acceptCookies();
         homePage.clickSelectHeader();
@@ -49,6 +55,7 @@ public class MtsByTests {
     }
 
     @Test
+    @Description("Проверка плейсхолдера задолженности")
     public void testPlesholderDebt() {
         homePage.acceptCookies();
         homePage.clickSelectHeader();
@@ -57,11 +64,13 @@ public class MtsByTests {
     }
 
     @Test
+    @Description("Проверка логотипов платёжных систем")
     public void testPaymentSystemLogos() {
         assertEquals(7, homePage.getPaymentLogosCount(), "Логотипы платёжных систем не найдены");
     }
 
     @Test
+    @Description("Проверка ссылки 'Подробнее о сервисе'")
     public void testLink() {
         homePage.acceptCookies();
         assertTrue(homePage.isMoreAboutServiceLinkDisplayed(), "Ссылка 'Подробнее о сервисе' не отображается.");
@@ -72,6 +81,7 @@ public class MtsByTests {
     }
 
     @Test
+    @Description("Проверка формы пополнения")
     public void testReplenishmentForm() {
         homePage.acceptCookies();
         homePage.fillReplenishmentForm("297777777", "10");
